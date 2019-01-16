@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* Backgrooound Image */
+.bg {
+   /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.accueil-image{
+	/* The image used */
+  background-image: url("../images/bird.jpg");
+	
+}
+.problematique-image{
+	/* The image used */
+  background-image: url("../images/boat.jpg");
+	
+}
+.psychologues-image{
+	/* The image used */
+  background-image: url("../images/LOGO_OPQ.jpg");
+  background-size: auto;
+  background-color:rgba(57,110,142,1);
+	
+}
+
+.services-image{
+	background-image: url("../images/neige.jpg");
+}
+
+.main_text p{
+	font-size:40px;
+}

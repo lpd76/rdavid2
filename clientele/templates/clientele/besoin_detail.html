@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_css_section %}
+<link rel="stylesheet" href= "{% static 'css/speciality.css' %}">
+{% endblock head_css_section %}
+
+{% block content %}
+	<div class="section-title main-title">
+		<h1>{{ besoins_detail.probleme.nom_fr  }}</h1>
+		<h6>( {{ besoins_detail.clientele_type.nom_fr }} )</h6>
+	</div>
+	
+{% endblock content %}
+

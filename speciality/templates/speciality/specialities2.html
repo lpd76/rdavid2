@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head_css_section %}
+<link rel="stylesheet" href= "{% static 'css/speciality2.css' %}">
+{% endblock head_css_section %}
+
+
+
+{% block content %}
+<div class="container-fluid border border-success bg accueil-image" id="Acceuil">
+
+	<div class="row">
+		<div class="col-sm">
+			<h1>Acceuil</h1>
+		</div>
+	</div>
+	
+	<div class="row border border-danger justify-content-md-start">
+		<div class="col-sm-12 col-md-9 border border-primary main_text">
+			{% for text in sectiontext %}
+				{% if text.nom_fr == "Acceuil" %}
+					<p>{{ text.text_fr|escape|linebreaks  }}</p>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	
+</div>
+<div class="container-fluid bg problematique-image" id="problematique">
+	<div class="row justify-content-md-center">
+		<div class="col-sm-12">
+			<h1>Problématique</h1>
+		</div>
+	</div>
+</div>
+<div class="container-fluid bg psychologues-image" id="psychologues">
+	<div class="row justify-content-md-center">
+		<div class="col-sm-12">
+			<h1>Psychologues</h1>
+		</div>
+	</div>	
+</div>
+<div class="container-fluid bg services-image" id="services">
+	<div class="row justify-content-md-center">
+		<div class="col-sm-12">
+			<h1>Services</h1>
+		</div>
+	</div>	
+</div>
+<div class="container-fluid bg" id="locaux">
+	<div class="row justify-content-md-center">
+		<div class="col-sm-12">
+			<h1>Nos Locaux</h1>
+		</div>
+	</div>	
+</div>
+{% endblock content %}
+
