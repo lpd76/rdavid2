@@ -11,21 +11,53 @@
 	<div class="main-title">
 		<h1><i class="fas fa-home"></i> Acceuil</h1>
 	</div>
-	<div class="container main-text-acceuil">
-		{% for text in sectiontext %}
-			{% if text.nom_fr == "Acceuil" %}
-				{{ text.text_fr|escape|linebreaks  }}
-			{% endif %}
-		{% endfor %}
+	<div class="container-fluid main-text-acceuil">
+		<div class="row">
+			<div class="col-sm-10">
+				{% for text in sectiontext %}
+					{% if text.nom_fr == "Acceuil" %}
+						{{ text.text_fr|escape|linebreaks  }}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 </div>
 
 
-
+<div class="pr-section specialities" style="background-image:url('{% static 'images/railroad.jpg' %}'); background-size: cover;" id="specialities">
+	<div class="main-title">
+		<h1><i class="far fa-comment-dots"></i> Nous sommes là pour vous</h1>
+	</div>
+	
+	<div class="main-text">
+		
+	</div>
+	
+	<div class="card-container">
+		<div class="row justify-content-center align-items-center">
+			{% for key, value in probleme_clientele.items %}
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<h3>{{ key }}</h3>
+						</div>
+						<div class="flip-card-back">
+							{% for item in value %}
+								<h6><a href="{% url 'detail_problematique' item.id %}">{{ item.probleme }}</a></h6>
+							{% endfor%}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+		
+</div>
 
 <div class="specialities profile" style="background-image:url('{% static 'images/LOGO_OPQ.png' %}'); background-size: 700px 700px; background-repeat: no-repeat; background-position:center;" id="staff">
 	<div class="main-title">
-		<h1><i class="far fa-user"></i>  Psychologues</h1>
+		<h1><i class="far fa-user"></i>  Notre Équipe</h1>
 	</div>
 	<div class="main-text">
 		{% for text in sectiontext %}
@@ -54,7 +86,6 @@
 	</div>		
 </div>
 
-
 <div class="pr-section locaux" id="locaux">
 	<div class="main-title">
 		<h1> <i class="far fa-building"></i> Nos locaux</h1>
@@ -66,67 +97,6 @@
 			{% endif %}
 		{% endfor %}
 	</div>
-</div>
-
-<div class="pr-section specialities" style="background-image:url('{% static 'images/boat.jpg' %}'); background-size: cover;" id="specialities">
-	<div class="main-title">
-		<h1><i class="far fa-frown"></i> Problématiques</h1>
-	</div>
-	
-	<div class="main-text">
-		
-	</div>
-	
-	<div class="card-container">
-		<div class="row justify-content-center align-items-center">
-			{% for key, value in probleme_clientele.items %}
-				<div class="flip-card">
-					<div class="flip-card-inner">
-						<div class="flip-card-front">
-							<h3>{{ key }}</h3>
-						</div>
-						<div class="flip-card-back">
-							{% for item in value %}
-								<h6><a href="{% url 'detail_problematique' item.id %}">{{ item.probleme }}</a></h6>
-							{% endfor%}
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
-		
-</div>
-
-
-<div class="pr-section clientele" style="background-image:url('{% static 'images/neige.jpg' %}'); background-size: cover;" id="clientele">
-	<div class="main-title">
-		<h1><i class="fas fa-handshake"></i> Services</h1>
-	</div>
-	
-	<div class="main-text">
-		
-	</div>
-	
-	<div class="card-container">
-		<div class="row">
-		{% for client in all_clientele %}
-			<div class="flip-card">
-				<div class="flip-card-inner">
-					<div class="flip-card-front">
-						<h3>{{ client.nom_fr }}<h3>
-					</div>
-					<div class="flip-card-back"> 
-						{% for service in client.services.all %}
-							<h6><a href="/">{{ service }}</a><h6>
-						{% endfor %}
-					</div>
-				</div>
-			</div>	
-		{% endfor %}
-		</div>
-	</div>
-	
 </div>
 
 {% endblock content %}
